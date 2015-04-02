@@ -1,0 +1,26 @@
+.shadow-dom-reset {
+  a {
+    /* Fallback defaults/Firefox */
+    &,
+    &:link {
+      color: #0000EE;
+      color: -moz-hyperlinktext;
+    }
+
+    &:visited {
+      color: #551a8b;
+      color: -moz-visitedhyperlinktext;
+    }
+
+    &:active {
+      color: #EE0000;
+      color: -moz-activehyperlinktext;
+    }
+
+    /* Chrome/Safari/Webkit */
+    &,
+    &:-webkit-any-link {
+      color: -webkit-link;
+    }
+  }
+}
