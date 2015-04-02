@@ -8,7 +8,7 @@
 </style>
 
 <a href="#first">first</a>
-<div class="shadow-dom-reset">
+<div class="shadow-dom">
   <a href="#second">second</a>
 </div>
 ```
