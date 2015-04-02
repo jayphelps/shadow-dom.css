@@ -1,9 +1,19 @@
 .shadow-dom {
-  a {
-    /* Fallback defaults/Firefox */
-    &,
+  // Chrome/Webkit won't work properly if the common stuff is shared
+  // by comma (:-webkit-any-link, :-moz-any-link {}) so we need to actually
+  // mix the stuff in separately.
+  .any-link-mixin() {
+    all: initial;
+    cursor: pointer;
+
+    &:not(svg|a) {
+      text-decoration: underline;
+    }
+  }
+
+  *|* {
     &:link {
-      color: #0000EE;
+      color: #00E;
       color: -moz-hyperlinktext;
     }
 
@@ -13,16 +23,23 @@
     }
 
     &:active {
-      color: #EE0000;
+      color: #E00;
       color: -moz-activehyperlinktext;
     }
 
     /* Chrome/Safari/Webkit */
-    &,
     &:-webkit-any-link {
-      // This is a magical value that handles every case, automatically.
-      // :link, :active, :visited, etc
+      .any-link-mixin();
+      // -webkit-link is a magical value that will change for :link/:visited
       color: -webkit-link;
+
+      &:active {
+        color: -webkit-activelink;
+      }
+    }
+
+    &:-moz-any-link {
+      .any-link-mixin();
     }
   }
 }
