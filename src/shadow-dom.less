@@ -12,6 +12,8 @@
   }
 
   *|* {
+
+    /* Fallback defaults */
     &:link {
       color: #00E;
       color: -moz-hyperlinktext;
@@ -38,8 +40,22 @@
       }
     }
 
+    /* Firefox */
     &:-moz-any-link {
       .any-link-mixin();
+    }
+
+    /* Opera */
+    _:-o-prefocus, &:link {
+      .any-link-mixin();
+      border: 0 #00c;
+      color: #00c;
+    }
+
+    _:-o-prefocus, &:visited {
+      .any-link-mixin();
+      border: 0 #800080;
+      color: #800080;
     }
   }
 }
